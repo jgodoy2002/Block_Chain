@@ -7,12 +7,13 @@ const Home= () => {
     const handleLogout = () => {
         navigate('/login');
     };
+    
   return (
     <div style={{ display: "flex", minHeight: "100vh" }}>
       <nav style={{ width: "250px", background: "#1890ff", color: "white", padding: "20px", display: "flex", flexDirection: "column", alignItems: "center" }}>
         <h2>Blockchain</h2>
         <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "10px" }}>
-          {['Panel de Control', 'Registro de Medicamentos', 'Seguimiento', 'Configuración'].map((item, index) => (
+          {['Panel de Control', 'Registro de Medicamentos', 'Transaccion', 'Configuración'].map((item, index) => (
             <li key={index}>
               <button style={{
                 width: "190px",
@@ -34,6 +35,7 @@ const Home= () => {
             </li>
           ))}
         </ul>
+        
         <button style={{
           width: "150px",
           height: "50px",
