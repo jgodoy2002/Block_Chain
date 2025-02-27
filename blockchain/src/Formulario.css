@@ -1,0 +1,81 @@
+.crear-producto-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120vh;
+    background-color: #1890ff;
+    font-family: 'Arial', sans-serif;
+}
+
+.crear-producto-wrapper {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    height: 800px
+}
+
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-weight: bold;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.form-control:focus {
+    border-color: #1890ff;
+    outline: none;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #1890ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: #40a9ff;
+}
+
+.file-upload-mockup {
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    background-color: #f9f9f9;
+    color: #666;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.upload-button {
+    background-color: #1890ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    margin-top: 0.5rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
