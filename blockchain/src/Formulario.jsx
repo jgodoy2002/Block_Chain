@@ -10,7 +10,6 @@ function Formulario() {
     const navigate = useNavigate();
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Lógica para manejar el envío del formulario
         console.log({ proveedor, marca, descripcion, categoria });
     };
 
