@@ -27,6 +27,7 @@ const Home= () => {
       {nombre:'',lote:'',fecha:''});
     
   return (
+    <div className="home-container">
     <div className="home">
       <h1>Panel de Control</h1>
       <div className="button-container"> 
@@ -56,7 +57,7 @@ const Home= () => {
             </tbody>
         </table>
     </div>
-
+  </div>
   );
 }
 
