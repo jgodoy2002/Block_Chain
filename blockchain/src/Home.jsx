@@ -2,11 +2,20 @@ import React from "react";
 import { FaCog, FaSignOutAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import "./Home.css";
 const Home= () => {
     const navigate = useNavigate();
     const handleLogout = () => {
-        navigate('/login');
+        navigate('/');
     };
+
+    const handleFormulario = () => {
+        navigate('/formulario');
+    }
+    
+    const handleTransacciones = () => {
+        navigate('/transacciones');
+    }
     
     const [medicamentos, setMedicamentos] = useState([
       {id:1,nombre:"Paracetamol",lote:"123",fecha:"2021-10-10"},
@@ -18,11 +27,16 @@ const Home= () => {
       {nombre:'',lote:'',fecha:''});
     
   return (
-    <div style={{paddding:20}}>
+    <div className="home">
       <h1>Panel de Control</h1>
-      <div>
-        <input type="text" name="nombre" placeholder="Nombre" value={nuevoMedicamento.nombre} onChange={(e) => setNuevoMedicamento({...nuevoMedicamento, nombre: e.target.value})}/>
-      </div>
+      <div className="button-container"> 
+      <button className="button-crearFormulario"onClick={handleFormulario}>
+        Crear Formulario
+      </button>
+      <button className="button-regresar" onClick={handleLogout}>
+        <FaSignOutAlt />
+        </button>
+        </div>
       <table border="1" style={{marginTop:20, width:'100%'}}>
         <thead>
           <tr>
@@ -35,7 +49,7 @@ const Home= () => {
             {medicamentos.map((medicamento) => (
               <tr key={medicamento.id}>
                 <td>{medicamento.nombre}</td>
-                <td>{medicamento.lote}</td>
+                <td onClick={handleTransacciones} style={{cursor:"pointer"}}>{medicamento.lote}</td>
                 <td>{medicamento.fecha}</td>
                 </tr>
                 ))}     
