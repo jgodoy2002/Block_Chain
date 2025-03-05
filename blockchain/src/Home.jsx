@@ -1,75 +1,49 @@
 import React from "react";
 import { FaCog, FaSignOutAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-
+import { useState } from "react";
 const Home= () => {
     const navigate = useNavigate();
     const handleLogout = () => {
         navigate('/login');
     };
     
+    const [medicamentos, setMedicamentos] = useState([
+      {id:1,nombre:"Paracetamol",lote:"123",fecha:"2021-10-10"},
+      {id:2,nombre:"Ibuprofeno",lote:"456",fecha:"2021-10-10"},
+      {id:3,nombre:"Aspirina",lote:"789",fecha:"2021-10-10"}
+    ]);
+
+    const [nuevoMedicamento, setNuevoMedicamento] = useState(
+      {nombre:'',lote:'',fecha:''});
+    
   return (
-    <div style={{ display: "flex", minHeight: "100vh" }}>
-      <nav style={{ width: "250px", background: "#1890ff", color: "white", padding: "20px", display: "flex", flexDirection: "column", alignItems: "center" }}>
-        <h2>Blockchain</h2>
-        <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "10px" }}>
-          {['Panel de Control', 'Registro de Medicamentos', 'Transaccion', 'Configuración'].map((item, index) => (
-            <li key={index}>
-              <button style={{
-                width: "190px",
-                height: "50px",
-                borderRadius: "8px",
-                border: "none",
-                background: "white",
-                color: "#1890ff",
-                cursor: "pointer",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: "12px",
-                textAlign: "center",
-                padding: "5px"
-              }}>
-                {item}
-              </button>
-            </li>
-          ))}
-        </ul>
-        
-        <button style={{
-          width: "150px",
-          height: "50px",
-          borderRadius: "8px",
-          border: "none",
-          background: "red",
-          color: "white",
-          cursor: "pointer",
-          marginTop: "20px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-         
-        }} onClick={handleLogout}>
-          <FaSignOutAlt size={20} />
-        </button>
-      </nav>
-      <div style={{ flex: 1, padding: "20px" }}>
-        <header style={{ display: "flex", justifyContent: "space-between", alignItems: "center", background: "#fff", padding: "10px" }}>
-          <h2>Panel de Control</h2>
-          <button style={{
-            border: "none",
-            background: "transparent",
-            cursor: "pointer"
-          }}>
-          </button>
-        </header>
-        <main style={{ background: "white", padding: "20px" }}>
-          <table border="1" style={{ width: "100%", borderCollapse: "collapse" }}>
-          </table>
-        </main>
+    <div style={{paddding:20}}>
+      <h1>Panel de Control</h1>
+      <div>
+        <input type="text" name="nombre" placeholder="Nombre" value={nuevoMedicamento.nombre} onChange={(e) => setNuevoMedicamento({...nuevoMedicamento, nombre: e.target.value})}/>
       </div>
+      <table border="1" style={{marginTop:20, width:'100%'}}>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Lote</th>
+            <th>Fecha</th>
+          </tr>
+          </thead>
+          <tbody>
+            {medicamentos.map((medicamento) => (
+              <tr key={medicamento.id}>
+                <td>{medicamento.nombre}</td>
+                <td>{medicamento.lote}</td>
+                <td>{medicamento.fecha}</td>
+                </tr>
+                ))}     
+            </tbody>
+        </table>
     </div>
+
   );
-};
+}
 
 export default Home;
