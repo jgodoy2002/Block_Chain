@@ -1,22 +1,27 @@
 import React, { useState } from 'react';
 import './Formulario.css'; // Importa un archivo CSS para los estilos
+import { useNavigate } from 'react-router-dom';
 
 function Formulario() {
     const [proveedor, setProveedor] = useState("");
     const [marca, setMarca] = useState("");
     const [descripcion, setDescripcion] = useState("");
     const [categoria, setCategoria] = useState("");
-
+    const navigate = useNavigate();
     const handleSubmit = (e) => {
         e.preventDefault();
         // Lógica para manejar el envío del formulario
         console.log({ proveedor, marca, descripcion, categoria });
     };
 
+    const handleHome = () => {
+        navigate('/home');
+    }
+
     return (
         <div className="crear-producto-container">
             <div className="crear-producto-wrapper">
-                <h3>Agregar Producto</h3>
+                <h3>Agregar Medicamento</h3>
                 <p>Llene el siguiente formulario para completar la transferencia</p>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
@@ -69,9 +74,13 @@ function Formulario() {
                             <button type="button" className="upload-button">
                                 Seleccionar archivo
                             </button>
+                          
                         </div>
                     </div>
                     <button type="submit" className="submit-button">Enviar</button>
+                    <button onClick={handleHome} className='return-button'>
+                                Regresar
+                    </button>
                 </form>
             </div>
         </div>

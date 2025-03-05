@@ -79,3 +79,21 @@
     font-size: 0.9rem;
     transition: background-color 0.3s ease;
 }
+
+.return-button {
+    background-color: red;
+    color:white;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    margin-top: 0.5rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease; 
+    width: 100%;
+    cursor:pointer;
+}
+
+.return-button:hover{
+    background-color: aqua;
+}
