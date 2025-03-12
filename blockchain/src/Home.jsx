@@ -16,6 +16,10 @@ const Home= () => {
     const handleTransacciones = () => {
         navigate('/transacciones');
     }
+
+    const handleQR = () => {
+        navigate('/qr');
+    }
     
     const [medicamentos, setMedicamentos] = useState([
       {id:1,nombre:"Paracetamol",lote:"123",fecha:"2021-10-10"},
@@ -44,14 +48,25 @@ const Home= () => {
             <th>Nombre</th>
             <th>Lote</th>
             <th>Fecha</th>
+            <th>Acciones</th>
           </tr>
           </thead>
           <tbody>
             {medicamentos.map((medicamento) => (
               <tr key={medicamento.id}>
                 <td>{medicamento.nombre}</td>
-                <td onClick={handleTransacciones} style={{cursor:"pointer"}}>{medicamento.lote}</td>
+                <td>{medicamento.lote}</td>
                 <td>{medicamento.fecha}</td>
+                <td>
+                  <div className="button-container-Acciones">
+                    <button className="button-verMas" onClick={handleTransacciones}>
+                      Ver Mas
+                    </button>
+                    <button className="button-verMas" onClick={handleQR}>
+                      Ver QR
+                    </button>
+                  </div>
+                </td>
                 </tr>
                 ))}     
             </tbody>

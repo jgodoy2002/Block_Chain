@@ -1,4 +1,7 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+
 
 const historialTransacciones = {
     101: [
@@ -35,6 +38,10 @@ const historialTransacciones = {
 const Transacciones = () => {
     const medicamentoId = 101;
     const historial = historialTransacciones[medicamentoId] || [];
+    const navigate = useNavigate();
+    const handleHome = () => {
+        navigate("/home");
+    }
 
     return (
         <div style={styles.container}>
@@ -68,6 +75,8 @@ const Transacciones = () => {
                     ))}
                 </ul>
             )}
+
+            <button onClick={handleHome} style={{backgroundColor:"royalblue"}}>Regresar</button>
         </div>
     );
 };

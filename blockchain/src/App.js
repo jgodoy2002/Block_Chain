@@ -4,9 +4,12 @@ import Login from './Login';
 import Home from './Home';
 import Formulario from './Formulario'
 import Transacciones from './Transacciones'; 
+
+import Sidebar from './components/Sidebar';
 const App = () =>{
   return(
     <Router>
+      
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/home" element={<Home />} />
