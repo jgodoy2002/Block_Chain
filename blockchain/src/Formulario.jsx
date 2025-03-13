@@ -77,9 +77,7 @@ function Formulario() {
                         </div>
                     </div>
                     <button type="submit" className="submit-button">Enviar</button>
-                    <button onClick={handleHome} className='return-button'>
-                                Regresar
-                    </button>
+                    
                 </form>
             </div>
         </div>

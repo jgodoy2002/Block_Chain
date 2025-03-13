@@ -115,11 +115,11 @@ td{
     border: 1px solid #222831;
     padding: 10px;
     text-align: center;
-    background-color: #EEEEEE;
+    background-color: white;
 }
 tbody tr:hover{
-    background-color: #494545;
-    color: #6e86aa;
+    background-color: black;
+    color: #00ADB5;
     
 }
 

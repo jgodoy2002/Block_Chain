@@ -7,9 +7,9 @@
 .sidebar {
     display: flex;
     flex-direction: column;
-    background-color: #00ADB5; /* Color de fondo */
-    color: white; /* Color del texto */
-    height: 100vh;
+    background-color: #00ADB5; 
+    color: white;
+    height: 100%;
     width: 250px;
     padding: 20px;
 }
@@ -20,11 +20,11 @@
     color: white;
 }
 
-/* Lista de elementos del Sidebar */
+
 .lista {
     list-style: none;
     padding: 0;
-    flex-grow: 1; /* Allow the list to grow and take available space */
+    flex-grow: 1;
 }
 
 .lista-item {
@@ -33,26 +33,16 @@
     padding: 10px;
     gap: 10px;
     font-size: 18px;
-    color: white; /* Color de texto de los ítems */
+    color: white; 
     transition: background 0.3s ease;
 }
 
 .lista-item:hover {
-    background: rgba(255, 0, 0, 0.2); /* Rojo semi-transparente al pasar el mouse */
+    background: rgba(255, 0, 0, 0.2); 
     cursor: pointer;
-}
-
-/* Enlaces */
-.lista-item a {
-    text-decoration: none;
-    color: white;
-}
-
-.lista-item a:hover {
     text-decoration: underline;
 }
 
-/* Estilo para botón de Logout */
 .lista-item-logout {
     display: flex;
     align-items: center;
@@ -60,20 +50,22 @@
     gap: 10px;
     font-size: 18px;
     color: white;
-    margin-top: auto; /* Empuja el elemento al fondo */
-
+    margin-top: auto; 
     text-align: center;
     transition: background 0.3s ease;
     position:absolute;
     bottom:20px;
-    width: 120px;
+    width: 19%;
 }
 
-.lista-item-logout a {
-    text-decoration: none;
-    color: white;
-}
+
 
 .lista-item-logout:hover {
     background-color: darkred;
+}
+
+.lista-item.active {
+    background-color: #028090;
+    font-weight: bold;
+    border-left: 5px solid white;
 }
