@@ -15,7 +15,7 @@ function Login() {
       justifyContent: 'center',
       alignItems: 'center',
       height: '100vh',
-      backgroundColor: 'green'
+      backgroundColor: '#00ADB5'
     }}>
       <div className="wrapper">
         <h1>Login</h1>

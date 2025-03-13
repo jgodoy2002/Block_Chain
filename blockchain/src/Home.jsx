@@ -1,13 +1,10 @@
 import React from "react";
-import { FaCog, FaSignOutAlt } from "react-icons/fa";
+import { FaSignOutAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "./Home.css";
 const Home= () => {
     const navigate = useNavigate();
-    const handleLogout = () => {
-        navigate('/');
-    };
 
     const handleFormulario = () => {
         navigate('/formulario');
@@ -26,22 +23,11 @@ const Home= () => {
       {id:2,nombre:"Ibuprofeno",lote:"456",fecha:"2021-10-10"},
       {id:3,nombre:"Aspirina",lote:"789",fecha:"2021-10-10"}
     ]);
-
-    const [nuevoMedicamento, setNuevoMedicamento] = useState(
-      {nombre:'',lote:'',fecha:''});
     
   return (
     <div className="home-container">
     <div className="home">
-      <h1>Panel de Control</h1>
-      <div className="button-container"> 
-      <button className="button-crearFormulario"onClick={handleFormulario}>
-        Crear Formulario
-      </button>
-      <button className="button-regresar" onClick={handleLogout}>
-        <FaSignOutAlt />
-        </button>
-        </div>
+      <h1 className='header-container'>Panel de Control</h1>
       <table border="1" style={{marginTop:20, width:'100%'}}>
         <thead>
           <tr>

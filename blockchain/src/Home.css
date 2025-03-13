@@ -1,31 +1,31 @@
 .button-crearFormulario{
-    background-color: royalblue;
-    color: white;
+    background-color: #00ADB5;
+    color: #EEEEEE;
     width: 150px;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 7px;
     margin-left: 20px;
     cursor: pointer;
 }
 
 .button-regresar{
-    background-color: red;
-    color: white;
+    background-color: rgba(223, 16, 16, 0.89);
+    color: #EEEEEE;
     width: 150px;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 7px;
     margin-right: 20px;
     cursor: pointer;
 }
 
 .button-crearFormulario:hover{
     background-color: aquamarine;
-    color:black;
+    color:#222831;
 }
 
 .button-regresar:hover{
-    background-color: aquamarine;
-    color:black;
+    background-color: lightcoral;
+    color:#222831;
 }
 
 .button-container{
@@ -34,23 +34,35 @@
     width: 100%;
     padding: 10px;
     margin-right: 20px;
+    gap:15px;
 }
 
 .button-container-Acciones{
-    
+    display: flex;
+    flex-direction: row;
     justify-content: flex-start;
     width: auto;
     padding: 10px;
     margin-left: 20px;
+    gap:12px;
 }
 
+
 .button-verMas{
-    background-color: royalblue;
-    color:white;
+    font-size: 12px;
+    padding: 5px 10px;
+    background-color: #00ADB5;
+    color:#EEEEEE;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 7px;
     cursor:pointer;
     width: auto;
+}
+
+.button-verMas:hover{
+    background-color: aquamarine;
+    color:#222831;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .home{
@@ -58,24 +70,20 @@
     flex-direction: column;
     align-items: center;
     height: 100vh;
-    background-color: #1890ff;
+    background-color: #EEEEEE;
     padding: 20px;
 }
 
 .header-container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
     padding: 10px;
-    background-color: white;
+    color: #222831;
 }
 
 .table-container{
     display: flex;
     justify-content: center;
     width: 100%;
-    background-color: white;
+    background-color: #EEEEEE;
     padding: 20px;
     border-radius: 10px;
     margin-top: 20px;
@@ -88,29 +96,30 @@ table{
 }
 
 thead{
-    background-color: royalblue;
-    color: white;
+    background-color: #393E46;
+    color: #EEEEEE;
     text-align: center;
 }
 th{
-    border: 1px solid black;
+    border: 1px solid #222831;
     
     padding: 10px;
     text-align: center;
 } 
 th:nth-child(4),td:nth-child(4){
-    width: 120px;
+    width: 100px;
+    text-align: center;
 }
 
 td{
-    border: 1px solid black;
+    border: 1px solid #222831;
     padding: 10px;
     text-align: center;
-    background-color: white;
+    background-color: #EEEEEE;
 }
 tbody tr:hover{
-    background-color: black;
-    color: red;
+    background-color: #494545;
+    color: #6e86aa;
     
 }
 
