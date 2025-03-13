@@ -2,21 +2,16 @@ import React from "react";
 import { FaSignOutAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import QRPortal from "./imagenes/QR_portalunitec.jpg"
 import "./Home.css";
 const Home= () => {
     const navigate = useNavigate();
-
-    const handleFormulario = () => {
-        navigate('/formulario');
-    }
-    
+    const [showQR, setShowQR] = useState(false); 
     const handleTransacciones = () => {
         navigate('/transacciones');
     }
 
-    const handleQR = () => {
-        navigate('/qr');
-    }
+    const handleQR = () => setShowQR(true);
     
     const [medicamentos, setMedicamentos] = useState([
       {id:1,nombre:"Paracetamol",lote:"123",fecha:"2021-10-10"},
@@ -57,6 +52,18 @@ const Home= () => {
                 ))}     
             </tbody>
         </table>
+
+        {showQR && (
+          <div className="modal">
+            <div className="modal-content">
+              <span className="close" onClick={()=> setShowQR(false)}>&times;</span>
+              <h2>Codigo QR</h2>
+              <img src={QRPortal} alt="Codigo QR" style={{width:200}}/>
+            </div>
+          </div>
+        )}
+
+
     </div>
   </div>
   );

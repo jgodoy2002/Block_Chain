@@ -27,7 +27,7 @@ const Sidebar = () => {
             <ul className="lista" style={{color:"red"}}>
                 <li className={`lista-item ${location.pathname === "/home" ? "active":""}`} onClick={handlePanel}>
                     <FaHome/>
-                    Panel de Control
+                    Home
                 </li>
                 <li className={`lista-item ${location.pathname === "/formulario" ? "active":""}`} onClick={handleFormulario}>
                     <FaClipboard/>

@@ -20,8 +20,8 @@ function Formulario() {
     return (
         <div className="crear-producto-container">
             <div className="crear-producto-wrapper">
-                <h3>Agregar Medicamento</h3>
-                <p>Llene el siguiente formulario para completar la transferencia</p>
+                <h3 style={{color:'white', marginBottom:'5px'}}>Agregar Medicamento</h3>
+                <p style={{color:"#EEEEEE" , marginBottom:'5px'}}>Llene el siguiente formulario para completar la transferencia</p>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
                         <label htmlFor="proveedor">Proveedor</label>
