@@ -1,6 +1,7 @@
 import React from "react";
+import { Card, Typography, Row, Col } from "antd";
 
-
+const { Title } = Typography;
 
 const historialTransacciones = {
     101: [
@@ -39,37 +40,21 @@ const Transacciones = () => {
     const historial = historialTransacciones[medicamentoId] || [];
 
     return (
-        <div style={styles.container}>
-            <h1 style={styles.title}>Historial de Transacciones</h1>
-            {historial.length === 0 ? (
-                <p style={styles.noData}>No hay transacciones disponibles.</p>
-            ) : (
-                <ul style={styles.list}>
-                    {historial.map((transaccion, index) => (
-                        <li key={transaccion.id} style={styles.listItem}>
-                            <strong style={styles.transactionNumber}>
-                                Transacción {index + 1}:
-                            </strong>
-                            <p style={styles.detail}>
-                                <span style={styles.label}>Origen:</span>{" "}
-                                {transaccion.entidad_origen || "[Fabricante]"}
-                            </p>
-                            <p style={styles.detail}>
-                                <span style={styles.label}>Destino:</span>{" "}
-                                {transaccion.entidad_destino}
-                            </p>
-                            <p style={styles.detail}>
-                                <span style={styles.label}>Fecha:</span>{" "}
-                                {new Date(transaccion.fecha).toLocaleString()}
-                            </p>
-                            <p style={styles.detail}>
-                                <span style={styles.label}>Ubicación:</span>{" "}
-                                {transaccion.ubicacion}
-                            </p>
-                        </li>
-                    ))}
-                </ul>
-            )}
+        <div style={{ padding: 20, maxWidth: 800, margin: "auto" }}>
+            <Title level={2} style={{ textAlign: "center" }}>Historial de Transacciones</Title>
+            <Row gutter={[16, 16]}>
+                {historial.map((transaccion, index) => (
+                    <Col span={24} key={transaccion.id}>
+                        <Card>
+                            <Title level={4}>Transacción {index + 1}:</Title>
+                            <p><strong>Origen:</strong> {transaccion.entidad_origen || "[Fabricante]"}</p>
+                            <p><strong>Destino:</strong> {transaccion.entidad_destino}</p>
+                            <p><strong>Fecha:</strong> {new Date(transaccion.fecha).toLocaleString()}</p>
+                            <p><strong>Ubicación:</strong> {transaccion.ubicacion}</p>
+                        </Card>
+                    </Col>
+                ))}
+            </Row>
         </div>
     );
 };

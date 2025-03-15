@@ -49,6 +49,7 @@
 
 
 .button-verMas{
+    display: flex;
     font-size: 12px;
     padding: 5px 10px;
     background-color: #00ADB5;
@@ -56,7 +57,7 @@
     text-align: center;
     border-radius: 7px;
     cursor:pointer;
-    width: auto;
+    width: 100%;
 }
 
 .button-verMas:hover{
@@ -129,31 +130,4 @@ tbody tr:hover{
     height: 100vh;
     background-color: #f5f5f5;
 
-}
-
-.modal{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.modal-content{
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-}
-
-.close{
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 30px;
-    cursor: pointer;
 }

@@ -12,6 +12,7 @@
     height: 100%;
     width: 250px;
     padding: 20px;
+    border-radius: 10px;
 }
 
 .header {
@@ -55,7 +56,7 @@
     transition: background 0.3s ease;
     position:absolute;
     bottom:20px;
-    width: 19%;
+    width: 10%;
 }
 
 

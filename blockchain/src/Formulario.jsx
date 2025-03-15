@@ -1,87 +1,55 @@
-import React, { useState } from 'react';
-import './Formulario.css'; // Importa un archivo CSS para los estilos
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { Form, Input, Button, Typography, Upload } from "antd";
+import { UploadOutlined } from "@ant-design/icons";
+import { useNavigate } from "react-router-dom";
 
-function Formulario() {
-    const [proveedor, setProveedor] = useState("");
-    const [marca, setMarca] = useState("");
-    const [descripcion, setDescripcion] = useState("");
-    const [categoria, setCategoria] = useState("");
+const { Title } = Typography;
+
+const Formulario = () => {
+    const [form] = Form.useForm();
     const navigate = useNavigate();
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log({ proveedor, marca, descripcion, categoria });
+
+    const handleSubmit = (values) => {
+        console.log(values);
     };
 
     const handleHome = () => {
-        navigate('/home');
-    }
+        navigate("/home");
+    };
 
     return (
-        <div className="crear-producto-container">
-            <div className="crear-producto-wrapper">
-                <h3 style={{color:'white', marginBottom:'5px'}}>Agregar Medicamento</h3>
-                <p style={{color:"#EEEEEE" , marginBottom:'5px'}}>Llene el siguiente formulario para completar la transferencia</p>
-                <form onSubmit={handleSubmit}>
-                    <div className="form-group">
-                        <label htmlFor="proveedor">Proveedor</label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            id="proveedor"
-                            placeholder="Proveedor"
-                            value={proveedor}
-                            onChange={(e) => setProveedor(e.target.value)}
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="marca">Marca</label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            id="marca"
-                            placeholder="Marca"
-                            value={marca}
-                            onChange={(e) => setMarca(e.target.value)}
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="descripcion">Descripción</label>
-                        <textarea
-                            className="form-control"
-                            id="descripcion"
-                            rows="3"
-                            value={descripcion}
-                            onChange={(e) => setDescripcion(e.target.value)}
-                        ></textarea>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="categoria">Categoría</label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            id="categoria"
-                            placeholder="Categoría"
-                            value={categoria}
-                            onChange={(e) => setCategoria(e.target.value)}
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="imagen">Imagen del Producto</label>
-                        <div className="file-upload-mockup">
-                            <span>Arrastra y suelta una imagen aquí o</span>
-                            <button type="button" className="upload-button">
-                                Seleccionar archivo
-                            </button>
-                          
-                        </div>
-                    </div>
-                    <button type="submit" className="submit-button">Enviar</button>
-                    
-                </form>
-            </div>
+        <div style={{ maxWidth: 500, margin: "auto", padding: 20 }}>
+            <Title level={3}>Agregar Medicamento</Title>
+            <p>Llene el siguiente formulario para completar la transferencia</p>
+            <Form form={form} layout="vertical" onFinish={handleSubmit}>
+                <Form.Item label="Proveedor" name="proveedor" rules={[{ required: true, message: "Ingrese el proveedor" }]}> 
+                    <Input placeholder="Proveedor" />
+                </Form.Item>
+
+                <Form.Item label="Marca" name="marca" rules={[{ required: true, message: "Ingrese la marca" }]}> 
+                    <Input placeholder="Marca" />
+                </Form.Item>
+
+                <Form.Item label="Descripción" name="descripcion"> 
+                    <Input.TextArea rows={3} placeholder="Descripción" />
+                </Form.Item>
+
+                <Form.Item label="Categoría" name="categoria"> 
+                    <Input placeholder="Categoría" />
+                </Form.Item>
+
+                <Form.Item label="Imagen del Producto" name="imagen">
+                    <Upload beforeUpload={() => false} maxCount={1}>
+                        <Button icon={<UploadOutlined />}>Seleccionar archivo</Button>
+                    </Upload>
+                </Form.Item>
+
+                <Form.Item>
+                    <Button type="primary" htmlType="submit">Enviar</Button>
+                </Form.Item>
+            </Form>
         </div>
     );
-}
+};
 
 export default Formulario;

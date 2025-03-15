@@ -1,9 +1,9 @@
 import React from "react";
-import { FaSignOutAlt } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { data, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import QRPortal from "./imagenes/QR_portalunitec.jpg"
 import "./Home.css";
+import {Table , Button} from 'antd'
 const Home= () => {
     const navigate = useNavigate();
     const [showQR, setShowQR] = useState(false); 
@@ -18,8 +18,18 @@ const Home= () => {
       {id:2,nombre:"Ibuprofeno",lote:"456",fecha:"2021-10-10"},
       {id:3,nombre:"Aspirina",lote:"789",fecha:"2021-10-10"}
     ]);
+
+    const columns=[
+      {title:'Nombre', dataIndex:'nombre', key:'name'},
+      {title:'Lote',dataIndex:'lote', key:'lote'},
+      {title:'Fecha',dataIndex:'fecha', key:'fecha'},
+      {title:'Acciones', key:'acciones', render:(medicamento)=>
+      <Button onClick={handleTransacciones}>Ver Mas</Button>
+      }
+    ];
     
   return (
+    /*
     <div className="home-container">
     <div className="home">
       <h1 className='header-container'>Panel de Control</h1>
@@ -43,28 +53,17 @@ const Home= () => {
                     <button className="button-verMas" onClick={handleTransacciones}>
                       Ver Mas
                     </button>
-                    <button className="button-verMas" onClick={handleQR}>
-                      Ver QR
-                    </button>
                   </div>
                 </td>
                 </tr>
                 ))}     
             </tbody>
         </table>
-
-        {showQR && (
-          <div className="modal">
-            <div className="modal-content">
-              <span className="close" onClick={()=> setShowQR(false)}>&times;</span>
-              <h2>Codigo QR</h2>
-              <img src={QRPortal} alt="Codigo QR" style={{width:200}}/>
-            </div>
-          </div>
-        )}
-
-
     </div>
+  </div>
+  */
+  <div className="home-container">
+    <Table dataSource={medicamentos} columns={columns} rowKey="id"/>
   </div>
   );
 }
