@@ -1,28 +1,24 @@
-import React from 'react';
-import {BrowserRouter as Router, Routes, Route, useLocation} from 'react-router-dom';
-import Login from '../Login';
-import Home from '../Home';
-import Formulario from '../Formulario'
-import Transacciones from '../Transacciones'; 
-import Sidebar from './Sidebar';
-import "./MainLayout.css";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import ProveedorLayout from "./ProveedorLayout";
+import ConsumidorLayout from "./ConsumidorLayout";
 
-const MainLayout = () =>{
-    const location = useLocation();
-  return(
-    
-    <div className='main-layout'>
-        {location.pathname !== '/' && <Sidebar/>}
-        <div className='content'>
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/formulario" element={<Formulario />} />
-        <Route path="/transacciones" element={<Transacciones />} />
-      </Routes>
-      </div>
-    </div>
-  );
+const MainLayout = () => {
+  const [tipoUsuario, setTipoUsuario] = useState(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const userType = localStorage.getItem("tipoUsuario"); // "proveedor" o "consumidor"
+    if (!userType) {
+      navigate("/"); // Si no hay usuario, redirige al login
+    } else {
+      setTipoUsuario(userType);
+    }
+  }, [navigate]);
+
+  if (!tipoUsuario) return null; // Evita que renderice antes de verificar el usuario
+
+  return tipoUsuario === "proveedor" ? <ProveedorLayout /> : <ConsumidorLayout />;
 };
 
 export default MainLayout;

@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Input, Button, Card, Typography, notification} from "antd";
+import { Form, Input, Button, Card, Typography } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 
