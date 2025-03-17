@@ -62,10 +62,28 @@ const Home= () => {
     </div>
   </div>
   */
-  <div className="home-container">
-    <Table dataSource={medicamentos} columns={columns} rowKey="id"/>
-  </div>
+  <div
+  className="home-container"
+  style={{
+    borderRadius: "10px",
+    overflow: "hidden",
+  }}
+>
+  <Table
+    dataSource={medicamentos}
+    columns={columns}
+    rowKey="id"
+    style={{
+      borderRadius: "10px",
+      overflow: "hidden",
+    }}
+  />
+</div>
+
   );
 }
 
 export default Home;
+
+
+
