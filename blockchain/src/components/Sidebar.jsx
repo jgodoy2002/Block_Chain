@@ -9,9 +9,10 @@ const Sidebar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const tipoUsuario = localStorage.getItem("tipoUsuario");
+  console.log("TipoUSER en sidebar es: ", tipoUsuario);
 
   const menus = {
-    proveedor: [
+    fabricante: [
         { key: "/home", icon: <HomeOutlined />, label: "Home" },
         { key: "/formulario", icon: <FormOutlined />, label: "Crear Medicamento" },
         { key: "/transacciones", icon: <TransactionOutlined />, label: "Transacciones" }
@@ -20,7 +21,7 @@ const Sidebar = () => {
         { key: "/home", icon: <HomeOutlined />, label: "Home" },
         { key: "/transacciones", icon: <TransactionOutlined />, label: "Transacciones" }
     ],
-    administrador: [
+    admin: [
         { key: "/home", icon: <HomeOutlined />, label: "Home" },
         { key: "/gestionuser", icon: <FormOutlined />, label: "Gestión de Usuarios" },
         { key: "/transacciones", icon: <TransactionOutlined />, label: "Ver Transacciones" },

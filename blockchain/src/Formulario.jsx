@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-import { Form, Input, Button, Typography, Upload } from "antd";
-import { UploadOutlined } from "@ant-design/icons";
-import { useNavigate } from "react-router-dom";
+// src/components/Formulario.jsx
+import React, { useEffect } from 'react';
+import { Form, Input, Button, Typography, Upload, message } from 'antd';
+import { UploadOutlined } from '@ant-design/icons';
+import { useNavigate } from 'react-router-dom';
 
 const { Title } = Typography;
 
@@ -9,16 +10,22 @@ const Formulario = () => {
     const [form] = Form.useForm();
     const navigate = useNavigate();
 
+    // Verificar si el usuario ha iniciado sesión
+    useEffect(() => {
+        const userRole = localStorage.getItem('tipoUsuario');
+        if (!userRole) {
+            // Si el usuario no ha iniciado sesión, redirigir al login
+            message.warning('Debes iniciar sesión para acceder a esta página');
+            navigate('/login');
+        }
+    }, [navigate]);
+
     const handleSubmit = (values) => {
         console.log(values);
     };
 
-    const handleHome = () => {
-        navigate("/home");
-    };
-
     return (
-        <div style={{ maxWidth: 500, margin: "auto", padding: 20 }}>
+        <div style={{ maxWidth: 500, margin: 'auto', padding: 20 }}>
             <Title level={3}>Agregar Medicamento</Title>
             <p>Llene el siguiente formulario para completar la transferencia</p>
             <Form form={form} layout="vertical" onFinish={handleSubmit}>
